@@ -1,0 +1,12 @@
+{
+    "jwt":[
+        {
+            "ruta":"/pedidos/realizarPedido",
+            "type":"POST"
+        },
+        {
+            "ruta":"/pedidos/mostarPedidoPorMesaPdf",
+            "type":"GET"
+        }
+    ]
+}

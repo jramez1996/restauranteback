@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student's profile</title>
+	<head>
+	<style type="text/css">
+		.report-cabecera h2{
+			text-align: center !important;
+		}
+		.text-center{
+			width: 100% !important;
+			display: block;
+			text-align: center !important;
+		}
+		.table-report,tr{
+			width: 100% !important;
+			text-align: center;
+		}
+		.report-detalle-cab-remesa{
+		  padding-left: 10px;
+		}
+		.report-detalle-cab-remesa span{
+			padding: 3px !important;
+		}
+		.padding10{
+			padding-top: 30px;
+		}
+		.italica-font{
+			font-style: italic !important;
+			padding: 0px !important;
+			margin: 0px;
+		}
+		.hrclass{
+			font-weight: bold;
+			border-top: 1px dashed black;
+		}
+	</style>
+	<meta charset="utf-8">
+</head>
+<body>
+	<div class="report-cabecera">
+		<h2 class="italica-font">COMANDA</h2>
+		<span class="text-center italica-font"><strong>{{dataSistema.direccion}} </strong></span><br>
+		<span class="text-center italica-font"><strong>{{dataSistema.nombreEmpresa}}</strong></span><br>
+		<span class="text-center italica-font"><strong>telefono:{{dataSistema.telefono}}</strong></span><br>
+	</div>
+	<hr class="hrclass">
+	<div class="report-detalle-cab-remesa">
+		<p class="italica-font"> <strong>Nro de venta :</strong>{{dataPedido.idPedido}}</p>
+		<p class="italica-font"><strong>Nro Mesa :</strong>{{dataPedido.mesas}}</p>
+		<p  class="italica-font"><strong>Mesero:</strong> {{dataPedido.nombreCompletosMozo}}</p>
+		<p  class="italica-font"><strong>Fecha Impresión:</strong>{{dataPedido.fechaImpresion}}</p>
+		<p  class="italica-font"><strong>Cliente:</strong>{{dataPedido.nombreCompletosCliente}}</p>
+	</div>
+	<hr class="hrclass">
+	<div class="report-detalle-cab-remesa">
+		<div class="report-body">
+			<table class="table-report">
+				<thead>
+				  <tr>
+					<th>Producto</th>
+					<th>Cantidad</th>
+				  </tr>
+				</thead>
+				<tbody id="tbody" >
+					{{#each dataPedido.detalle}}
+				  <tr  >
+					<td>{{this.producto}}</td>
+					<td>{{this.cantidad}}</td>
+				  </tr>
+				  {{/each}}
+				</tbody>
+			  </table>
+
+			</div>
+	</div>
+	<div>
+		<strong class="text-center padding10"><hr class="hrclass">OBSERVACIONES<hr class="hrclass"></strong>
+	</div>
+</body>
+
+</html>
